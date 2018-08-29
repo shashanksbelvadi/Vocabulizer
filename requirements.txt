@@ -1,0 +1,4 @@
+Flask
+python-decouple
+requests
+json2html
