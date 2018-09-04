@@ -12,7 +12,7 @@ def define():
     if not word_req:
         return json.dumps({'message': 'Bad input; query word missing.'})
 
-    return Word(word_req).get_definition()
+    return Word(word_req).get_definitions()
 
 
 if __name__ == '__main__':
