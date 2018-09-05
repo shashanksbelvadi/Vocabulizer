@@ -14,7 +14,11 @@ class Word(object):
         for entry in lexical_entries:
             entry_properties = {}
             senses = map(lambda e: e.get('senses'), entry.get('entries'))
-            definitions = map(lambda s: s.get('definitions'), senses)
+            definitions = []
+            for sens in senses:
+                nested_dfs = map(lambda s: s['definitions'], sens)
+                for n_d in nested_dfs:
+                    definitions.extend(n_d)
 
             entry_properties['definitions'] = definitions
             entry_properties['language'] = entry.get('language')
