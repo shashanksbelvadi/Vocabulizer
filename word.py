@@ -9,18 +9,24 @@ class Word(object):
         self.entries = []
 
     def parse_response(self, response):
+        print(response.text)
         lexical_entries = json.loads(response.text)['results'][0]['lexicalEntries']
 
         for entry in lexical_entries:
             entry_properties = {}
             senses = map(lambda e: e.get('senses'), entry.get('entries'))
             definitions = []
+            short_definitions = []
             for sens in senses:
-                nested_dfs = map(lambda s: s['definitions'], sens)
-                for n_d in nested_dfs:
+                nested_defs = map(lambda s: s.get('definitions', []), sens)
+                nested_short_defs = map(lambda s: s.get('short_definitions', []), sens)
+                for n_d in nested_defs:
                     definitions.extend(n_d)
+                for n_sd in nested_short_defs:
+                    short_definitions.extend(n_sd)
 
             entry_properties['definitions'] = definitions
+            entry_properties['short_definitions'] = short_definitions
             entry_properties['language'] = entry.get('language')
             entry_properties['pronunciations'] = entry.get('pronunciations')
 
