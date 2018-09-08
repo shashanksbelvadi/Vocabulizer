@@ -10,7 +10,6 @@ class Word(object):
         self.entries = []
 
     def parse_response(self, response):
-        print(response.text)
         lexical_entries = json.loads(response.text)[constants.RESULTS][0][constants.LEXICAL_ENTRIES]
 
         for entry in lexical_entries:
@@ -42,10 +41,10 @@ class Word(object):
 
             return json.dumps(self.entries)
         elif response.status_code == 404:
-            json_response['message'] = 'The word ' + self.word + ' was not found in the dictionary.'
+            json_response[constants.MESSAGE] = 'The word ' + self.word + ' was not found in the dictionary.'
         else:
-            json_response['message'] = 'Something went wrong, please try again.'
+            json_response[constants.MESSAGE] = 'Something went wrong, please try again.'
 
-        json_response['status_code'] = response.status_code
+        json_response[constants.STATUS_CODE] = response.status_code
 
         return json.dumps(json_response)
