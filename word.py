@@ -1,9 +1,10 @@
 import utils
 import json
 import constants
+from dict_utils import DictUtils
 
 
-class Word(object):
+class Word(DictUtils):
 
     def __init__(self, word):
         self.word = word
