@@ -17,7 +17,7 @@ def define():
 
     if request.method == 'POST':
         result = request.form
-        word_req = result.getlist('search_param')[0]
+        word_req = result.getlist('search_param')[0].lower()
     elif request.method == 'GET':
         word_req = request.args.get('word')
 
@@ -26,7 +26,7 @@ def define():
 
     definition_entries = json.loads(Word(word_req).get_definitions())
 
-    return render_template('define.html', entries=definition_entries)
+    return render_template('define.html', keyword=word_req, entries=definition_entries)
 
 
 if __name__ == '__main__':

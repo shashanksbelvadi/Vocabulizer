@@ -5,6 +5,7 @@
     <title>Vocabulizer</title>
 </head>
 <body>
+    <h1>{{ keyword }}</h1>
     <ul>
         {% for entry in entries %}
             <li>
@@ -18,11 +19,9 @@
                 <p>Pronunciation</p>
                 <ul>
                     {% for property_list in entry['Pronunciation'] %}
-                        {% for property in property_list %}
-                            <p>{{ property_list['audioFile'] }}</p>
-                            <p>{{ property_list['phoneticNotation'] }}</p>
-                            <p>{{ property_list['phoneticSpelling'] }}</p>
-                        {% endfor %}
+                        <p>{{ property_list['audioFile'] }}</p>
+                        <p>{{ property_list['phoneticNotation'] }}</p>
+                        <p>{{ property_list['phoneticSpelling'] }}</p>
                     {% endfor %}
                 </ul>
             </li>
