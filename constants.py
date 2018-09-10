@@ -11,4 +11,7 @@ PRONUNCIATIONS = 'pronunciations'
 # ---------------- RESPONSE CONSTANTS ----------------
 MESSAGE = 'message'
 STATUS_CODE = 'status_code'
-
+DEFINITION_HEADER = 'Definition'
+SHORT_DEFINITION_HEADER = 'Short definition'
+LANGUAGE_HEADER = 'Language'
+PRONUNCIATION_HEADER = 'Pronunciation'

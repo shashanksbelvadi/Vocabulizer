@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vocabulizer</title>
+</head>
+<body>
+    <ul>
+        {% for entry in entries %}
+            <li>
+                {% for attr_def in entry['Definition'] %}
+                    <p>Definition: {{ attr_def }}</p>
+                {% endfor %}
+                {% for attr_def in entry['Short definition'] %}
+                    <p>Short definition: {{ attr_def }}</p>
+                {% endfor %}
+                <p>Language: {{ entry['Language'] }}</p>
+                <p>Pronunciation</p>
+                <ul>
+                    {% for property_list in entry['Pronunciation'] %}
+                        {% for property in property_list %}
+                            <p>{{ property_list['audioFile'] }}</p>
+                            <p>{{ property_list['phoneticNotation'] }}</p>
+                            <p>{{ property_list['phoneticSpelling'] }}</p>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

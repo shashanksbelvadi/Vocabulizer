@@ -26,10 +26,10 @@ class Word(DictUtils):
                 for n_sd in nested_short_defs:
                     short_definitions.extend(n_sd)
 
-            entry_properties[constants.DEFINITIONS] = definitions
-            entry_properties[constants.SHORT_DEFINITIONS] = short_definitions
-            entry_properties[constants.LANGUAGE] = entry.get(constants.LANGUAGE)
-            entry_properties[constants.PRONUNCIATIONS] = entry.get(constants.PRONUNCIATIONS)
+            entry_properties[constants.DEFINITION_HEADER] = definitions
+            entry_properties[constants.SHORT_DEFINITION_HEADER] = short_definitions
+            entry_properties[constants.LANGUAGE_HEADER] = entry.get(constants.LANGUAGE)
+            entry_properties[constants.PRONUNCIATION_HEADER] = entry.get(constants.PRONUNCIATIONS)
 
             self.entries.append(entry_properties)
 
