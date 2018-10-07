@@ -10,17 +10,18 @@
         {% for entry in entries %}
             <li>
                 {% for attr_def in entry['Definition'] %}
-                    <p>Definition: {{ attr_def }}</p>
+                    <p><b>Definition:</b></p>
+                    <p>{{ attr_def }}</p>
+                    <p><b>Short Definition:</b></p>
+                    <p>{{ entry['Short definition'][loop.index0] }}</p>
                 {% endfor %}
-                {% for attr_def in entry['Short definition'] %}
-                    <p>Short definition: {{ attr_def }}</p>
-                {% endfor %}
-                <p>Language: {{ entry['Language'] }}</p>
-                <p>Pronunciation</p>
+                <p><b>Language:</b> {{ entry['Language'] }}</p>
+                <p><b>Pronunciations:</b></p>
                 <ul>
                     {% for property_list in entry['Pronunciation'] %}
-                        <p>{{ property_list['audioFile'] }}</p>
-                        <p>{{ property_list['phoneticNotation'] }}</p>
+                        <audio controls>
+                            <source src="{{ property_list['audioFile'] }}" type="audio/mpeg">
+                        </audio>
                         <p>{{ property_list['phoneticSpelling'] }}</p>
                     {% endfor %}
                 </ul>
