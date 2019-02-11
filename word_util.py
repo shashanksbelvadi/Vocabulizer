@@ -4,7 +4,7 @@ import constants
 from dict_utils import DictUtils
 
 
-class Word(DictUtils):
+class WordUtil(DictUtils):
 
     def __init__(self, word):
         self.word = word
