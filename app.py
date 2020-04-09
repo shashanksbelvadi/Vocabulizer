@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-from word import Word
+from word_util import WordUtil
 import constants
 import json
 
@@ -24,7 +24,7 @@ def define():
     if not word_req:
         return json.dumps({constants.MESSAGE: 'Bad input; query word missing.'})
 
-    definition_entries = json.loads(Word(word_req).get_definitions())
+    definition_entries = json.loads(WordUtil(word_req).get_definitions())
 
     return render_template('define.html', keyword=word_req, entries=definition_entries)
 
