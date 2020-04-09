@@ -107,5 +107,5 @@ venv.bak/
 .idea
 
 # settings
-.settings.ini
+settings.ini
 
