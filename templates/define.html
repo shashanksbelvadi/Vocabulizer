@@ -16,15 +16,15 @@
                     <p>{{ entry['Short definition'][loop.index0] }}</p>
                 {% endfor %}
                 <p><b>Language:</b> {{ entry['Language'] }}</p>
-                <p><b>Pronunciations:</b></p>
-                <ul>
-                    {% for property_list in entry['Pronunciation'] %}
-                        <audio controls>
-                            <source src="{{ property_list['audioFile'] }}" type="audio/mpeg">
-                        </audio>
-                        <p>{{ property_list['phoneticSpelling'] }}</p>
-                    {% endfor %}
-                </ul>
+<!--                <p><b>Pronunciations:</b></p>-->
+<!--                <ul>-->
+<!--                    {% for property_list in entry['Pronunciation'] %}-->
+<!--                        <audio controls>-->
+<!--                            <source src="{{ property_list['audioFile'] }}" type="audio/mpeg">-->
+<!--                        </audio>-->
+<!--                        <p>{{ property_list['phoneticSpelling'] }}</p>-->
+<!--                    {% endfor %}-->
+<!--                </ul>-->
             </li>
         {% endfor %}
     </ul>

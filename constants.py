@@ -7,6 +7,9 @@ DEFINITIONS = 'definitions'
 SHORT_DEFINITIONS = 'short_definitions'
 LANGUAGE = 'language'
 PRONUNCIATIONS = 'pronunciations'
+EXAMPLES = 'examples'
+AUDIO_FILE = 'audioFile'
+DIALECTS = 'dialects'
 
 # ---------------- RESPONSE CONSTANTS ----------------
 MESSAGE = 'message'
